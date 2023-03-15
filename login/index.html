@@ -10,7 +10,7 @@
   </head>
   <body>
     <!------------------------- AUTH SECTION  ---------------------------------------->
-    <section class="auth">
+    <section class="auth container">
       <div class="auth__left flex" data-align="end">
         <div class="auth__left-content flow">
           <h3>Our Philosophy</h3>
@@ -72,12 +72,16 @@
 
           <div class="form__inputs-container flow">
             <div class="input-container flex-col">
-              <label for="email">Email</label>
+              <!-- <label for="email">Email</label> -->
               <input id="email" type="email" placeholder="johndoe@gmail.com" />
+
+              <img class="input-warning" src="/assets/icon-warning.svg" alt="warning icon" />
             </div>
             <div class="input-container flex-col">
-              <label for="Password">Password</label>
-              <input id="Password" type="password" placeholder="••••••••••••••••••••••••" />
+              <!-- <label for="password">Password</label> -->
+              <input id="password" type="password" placeholder="••••••••••••••••••••••••" />
+
+              <img class="input-warning" src="/assets/icon-warning.svg" alt="warning icon" />
             </div>
             <div class="input-container flex-col">
               <input type="submit" value="Login" />
@@ -90,5 +94,7 @@
         </form>
       </div>
     </section>
+
+    <script type="module" src="./login.js"></script>
   </body>
 </html>
