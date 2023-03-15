@@ -2,7 +2,7 @@ import { elementsGetter } from './lib/elementsGetter.js';
 import { EMAIL_ERROR_MSG, FIRSTNAME_ERROR_MSG, PASSWORD_ERROR_MSG } from './lib/consts.js';
 import {
   addErrorMessageUI,
-  removeErrorMessageUI,
+  // removeErrorMessageUI,
   addInputsEventListeners,
   validateFirstName,
   validateEmail,
@@ -25,6 +25,7 @@ function submitHandlerFactory(formInputs) {
     handleErrorOnInitialSubmit(formInputs, firstnameValidity, emailValidity, passwordValidity);
 
     if (firstnameValidity && emailValidity && passwordValidity) {
+      const isSuccess = setUserOnLocalStorage(formInputs);
     }
   };
 }
@@ -36,7 +37,6 @@ function handleErrorOnInitialSubmit(
   passwordValidity
 ) {
   if (!firstnameValidity) {
-    console.log('error');
     formInputs.firstname.setCustomValidity(FIRSTNAME_ERROR_MSG);
     addErrorMessageUI(formInputs.firstname, FIRSTNAME_ERROR_MSG);
   }
@@ -48,4 +48,16 @@ function handleErrorOnInitialSubmit(
     formInputs.password.setCustomValidity(PASSWORD_ERROR_MSG);
     addErrorMessageUI(formInputs.password, PASSWORD_ERROR_MSG);
   }
+}
+
+function setUserOnLocalStorage(formInputs) {
+  const userObject = {
+    firstname: formInputs.firstname.value,
+    email: formInputs.email.value,
+    password: formInputs.password.value,
+  };
+
+  localStorage.setItem('user', JSON.stringify(userObject));
+
+  return true;
 }
