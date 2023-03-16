@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/logo-favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="./login.css" />
     <title>POTA®</title>
   </head>
   <body>
@@ -16,8 +17,8 @@
           <h3>Our Philosophy</h3>
           <p>
             Our designs are inspired by the urban tactical aesthetic, offering bold, practical and
-            sustainable clothing options for the modern, socially conscious consumer and super
-            amazing also supa cool.
+            sustainable clothing options for the modern, socially conscious consumer and super amazing
+            also supa cool.
           </p>
           <div class="auth__left-cta flex" data-justify="space-between" data-align="center">
             <svg viewBox="0 0 36 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,10 +71,15 @@
             <span class="form__sub-title">Enter your email and password</span>
           </div>
 
+          <div class="error-msg-container">
+            <img src="../assets/icon-warning.svg" alt="warning icon" />
+            <p>Wrong email or password</p>
+          </div>
+
           <div class="form__inputs-container flow">
             <div class="input-container flex-col">
               <!-- <label for="email">Email</label> -->
-              <input id="email" type="email" placeholder="johndoe@gmail.com" />
+              <input id="email" type="text" placeholder="johndoe@gmail.com" />
 
               <img class="input-warning" src="/assets/icon-warning.svg" alt="warning icon" />
             </div>
@@ -84,7 +90,7 @@
               <img class="input-warning" src="/assets/icon-warning.svg" alt="warning icon" />
             </div>
             <div class="input-container flex-col">
-              <input type="submit" value="Login" />
+              <input id="submit" type="submit" value="Login" />
             </div>
           </div>
 

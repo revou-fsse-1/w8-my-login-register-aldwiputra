@@ -1,0 +1,19 @@
+.error-msg-container {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: rgba(255, 0, 0, 0.7) 2px solid;
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.error-msg-container img {
+  width: 1rem;
+}
+
+.error-msg-container p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 0, 0, 0.7);
+}

@@ -1,5 +1,5 @@
 import { elementsGetter } from './lib/elementsGetter.js';
-import { EMAIL_ERROR_MSG, FIRSTNAME_ERROR_MSG, PASSWORD_ERROR_MSG } from './lib/consts.js';
+import { EMAIL_ERROR_MSG, FIRSTNAME_ERROR_MSG, PASSWORD_ERROR_MSG, USERS_KEY } from './lib/consts.js';
 import {
   addErrorMessageUI,
   // removeErrorMessageUI,
@@ -7,6 +7,10 @@ import {
   validateFirstName,
   validateEmail,
   validatePassword,
+  getInputsValue,
+  getUsersData,
+  clearAllInputs,
+  setLoadingButton,
 } from './lib/utils.js';
 
 const formInputs = elementsGetter('register');
@@ -15,7 +19,7 @@ addInputsEventListeners(formInputs);
 formInputs.form.addEventListener('submit', submitHandlerFactory(formInputs));
 
 function submitHandlerFactory(formInputs) {
-  return (event) => {
+  return event => {
     event.preventDefault();
 
     const firstnameValidity = validateFirstName(formInputs.firstname.value);
@@ -25,17 +29,26 @@ function submitHandlerFactory(formInputs) {
     handleErrorOnInitialSubmit(formInputs, firstnameValidity, emailValidity, passwordValidity);
 
     if (firstnameValidity && emailValidity && passwordValidity) {
-      const isSuccess = setUserOnLocalStorage(formInputs);
+      const result = postUserData(formInputs);
+
+      if (!result.success) {
+        formInputs.email.setCustomValidity('Email has already been used');
+        addErrorMessageUI(formInputs.email, 'Email has already been used');
+        setTimeout(() => alert(result.message), 0);
+        return;
+      }
+
+      setLoadingButton();
+
+      setTimeout(() => {
+        clearAllInputs(formInputs);
+        window.location.pathname = `/login`;
+      }, 2000);
     }
   };
 }
 
-function handleErrorOnInitialSubmit(
-  formInputs,
-  firstnameValidity,
-  emailValidity,
-  passwordValidity
-) {
+function handleErrorOnInitialSubmit(formInputs, firstnameValidity, emailValidity, passwordValidity) {
   if (!firstnameValidity) {
     formInputs.firstname.setCustomValidity(FIRSTNAME_ERROR_MSG);
     addErrorMessageUI(formInputs.firstname, FIRSTNAME_ERROR_MSG);
@@ -50,14 +63,30 @@ function handleErrorOnInitialSubmit(
   }
 }
 
-function setUserOnLocalStorage(formInputs) {
-  const userObject = {
-    firstname: formInputs.firstname.value,
-    email: formInputs.email.value,
-    password: formInputs.password.value,
+function postUserData(formInputs) {
+  const userObject = getInputsValue(formInputs);
+
+  if (!isEmailAvailable(userObject)) {
+    return {
+      success: false,
+      message: 'Email has already been used',
+    };
+  }
+
+  const users = getUsersData(USERS_KEY);
+  users.push(userObject);
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+  return {
+    success: true,
+    email: userObject.email,
+    message: 'User was successfully added',
   };
+}
 
-  localStorage.setItem('user', JSON.stringify(userObject));
+function isEmailAvailable(userObject) {
+  const users = getUsersData(USERS_KEY);
+  const isEmailUsed = users.find(user => user.email === userObject.email);
 
-  return true;
+  return !Boolean(isEmailUsed);
 }
