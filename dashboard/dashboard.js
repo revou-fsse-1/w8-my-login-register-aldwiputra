@@ -40,6 +40,7 @@ function renderData(users) {
       button.textContent = btnText;
       button.classList.add('entry-button');
 
+      if (btnText === 'Edit') button.addEventListener('click', editItem(index));
       if (btnText === 'Delete') button.addEventListener('click', deleteItem(index));
 
       tableData.appendChild(button);
@@ -62,17 +63,15 @@ function addItem() {
 }
 
 function editItem(index) {
-  var name = prompt('Nama baru:', data[index].name);
-  var age = prompt('Umur baru:', data[index].age);
-  var email = prompt('Email baru:', data[index].email);
+  return () => {
+    var name = prompt('Nama baru:', users[index].name);
+    var age = prompt('Umur baru:', users[index].age);
+    var email = prompt('Email baru:', users[index].email);
 
-  data[index] = {
-    name,
-    age,
-    email,
+    users[index] = { name, age, email };
+
+    renderData(users);
   };
-
-  renderData(users);
 }
 
 function deleteItem(index) {

@@ -104,6 +104,10 @@ td:last-child {
   text-align: center;
 }
 
+td:nth-child(3) {
+  width: 40%;
+}
+
 th {
   padding-block: 1rem;
 }
