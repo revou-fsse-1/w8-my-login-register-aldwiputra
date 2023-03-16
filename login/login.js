@@ -8,6 +8,7 @@ import {
   getUsersData,
   getInputsValue,
   setLoadingButton,
+  clearAllInputs,
 } from '../lib/utils.js';
 
 const formInputs = elementsGetter('login');
@@ -32,7 +33,12 @@ function submitHandlerFactory(formInputs) {
         if (errorElement.style.display === '') errorElement.style.display = 'flex';
       } else {
         if (errorElement.style.display !== '') errorElement.style.display = '';
+        localStorage.setItem('loggedInUser', JSON.stringify(result.user));
         setLoadingButton();
+        setTimeout(() => {
+          clearAllInputs(formInputs);
+          window.location.pathname = '/dashboard';
+        }, 2000);
       }
     }
   };
@@ -55,6 +61,7 @@ function authenticateUser(formInputs) {
   return {
     success: true,
     message: 'Login success',
+    user: auth,
   };
 }
 

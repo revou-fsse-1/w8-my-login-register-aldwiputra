@@ -1,0 +1,113 @@
+body {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-block: 2rem;
+}
+
+.line-separator {
+  display: block;
+  margin-block: 1.5rem;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+section.container {
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+
+  border-radius: 2rem;
+  border: rgba(255, 255, 255, 0.1) 2px solid;
+  padding: 2rem 4rem;
+}
+
+.title-container {
+  gap: 1rem;
+}
+
+.title-container h1 {
+  font-size: 1.75rem;
+  padding: 0.25rem 0.85rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: rgba(0, 0, 0, 0.6) 2px solid;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+.title-container .greeting {
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.input-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.greeting svg {
+  display: inline;
+  width: 1em;
+  vertical-align: top;
+  margin-right: 0.15rem;
+}
+
+button {
+  background-color: var(--color-peridot);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-button {
+  border-radius: 0.5rem;
+  padding: 0 2rem;
+  margin-top: 0.25rem;
+}
+
+.entry-button {
+  padding: 0.25rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.entry-button:last-child {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.input-container > * {
+  flex: 1;
+}
+
+table {
+  margin-block-start: 2rem;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: black 1px solid;
+  border-collapse: collapse;
+}
+
+th:first-child {
+  width: 20%;
+}
+
+td:last-child {
+  width: 20%;
+  text-align: center;
+}
+
+th {
+  padding-block: 1rem;
+}
+
+td {
+  padding: 1rem;
+}
