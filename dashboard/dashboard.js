@@ -40,8 +40,11 @@ function renderData(users) {
       button.textContent = btnText;
       button.classList.add('entry-button');
 
-      if (btnText === 'Edit') button.addEventListener('click', editItem(index));
-      if (btnText === 'Delete') button.addEventListener('click', deleteItem(index));
+      if (btnText === 'Edit') {
+        button.addEventListener('click', editItem(index));
+      } else {
+        button.addEventListener('click', deleteItem(index));
+      }
 
       tableData.appendChild(button);
       tableRow.appendChild(tableData);
