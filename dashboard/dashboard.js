@@ -1,4 +1,14 @@
 const user = localStorage.getItem('loggedInUser');
+
+if (!user) {
+  const container = document.querySelector('section.container');
+
+  container.innerHTML = '<h1>You have to login to see the page. Redirecting...</h1>';
+  setTimeout(() => {
+    window.location.pathname = '/login';
+  }, 1000);
+}
+
 const greetingElement = document.querySelector('.greeting span');
 const formInputs = {
   name: document.querySelector('#name'),
