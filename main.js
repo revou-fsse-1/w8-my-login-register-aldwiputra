@@ -42,6 +42,7 @@ function submitHandlerFactory(formInputs) {
 
       setTimeout(() => {
         clearAllInputs(formInputs);
+        document.cookie = `createdAccount=${result.email}; max-age=5; path=/`;
         window.location.pathname = `/login`;
       }, 2000);
     }

@@ -11,6 +11,27 @@ import {
   clearAllInputs,
 } from '../lib/utils.js';
 
+const toast = document.querySelector('.success-toast');
+const emailTextElement = document.querySelector('.success-toast .email');
+const cookies = document.cookie.split('; ');
+
+if (cookies) {
+  for (let i = 0; i < cookies.length; i++) {
+    const parts = cookies[i].split('=');
+    const name = decodeURIComponent(parts[0]);
+    if (name === 'createdAccount') {
+      const value = decodeURIComponent(parts[1]);
+      emailTextElement.textContent = value;
+      toast.classList.add('animate');
+
+      setTimeout(() => {
+        toast.classList.remove('animate');
+      }, 3000);
+      break;
+    }
+  }
+}
+
 const formInputs = elementsGetter('login');
 const errorElement = document.querySelector('.error-msg-container');
 

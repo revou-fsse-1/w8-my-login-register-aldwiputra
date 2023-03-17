@@ -228,6 +228,7 @@ fieldset {
 
 .auth__right {
   /* height: 100%; */
+  position: relative;
   grid-column: 8 / -1;
   align-items: center;
   justify-content: center;

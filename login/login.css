@@ -17,3 +17,38 @@
   font-weight: 600;
   color: rgba(255, 0, 0, 0.7);
 }
+
+.success-toast {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border: rgba(48, 104, 68) 1px solid;
+  background-color: rgba(76, 166, 76, 0.1);
+  border-radius: 0.5rem;
+
+  transition: all 500ms ease;
+  /* transition-delay: 500; */
+  opacity: 0;
+  transform: translateY(10%);
+}
+
+.success-toast.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.success-toast svg {
+  width: 1.25rem;
+}
+
+.success-toast p {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.success-toast .email {
+  color: rgba(0, 128, 0);
+}

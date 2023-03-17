@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/assets/logo-favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="../global.css" />
     <title>POTA® - Login</title>
   </head>
   <body>
@@ -79,7 +79,7 @@
           <div class="form__inputs-container flow">
             <div class="input-container flex-col">
               <!-- <label for="email">Email</label> -->
-              <input id="email" type="text" placeholder="johndoe@gmail.com" />
+              <input id="email" type="email" placeholder="johndoe@gmail.com" />
 
               <img class="input-warning" src="/assets/icon-warning.svg" alt="warning icon" />
             </div>
@@ -98,6 +98,17 @@
             <p>Don't have an account yet? <a href="/">Register</a></p>
           </div>
         </form>
+
+        <div class="success-toast">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#008000">
+            <path
+              fill-rule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+              clip-rule="evenodd" />
+          </svg>
+
+          <p>Account <span class="email">aldi@gmail.com</span> has been created</p>
+        </div>
       </div>
     </section>
 
