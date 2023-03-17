@@ -81,7 +81,11 @@ function editItem(index) {
     var age = prompt('Umur baru:', users[index].age);
     var email = prompt('Email baru:', users[index].email);
 
-    users[index] = { name, age, email };
+    if (!name && !age && !email) {
+      users[index] = users[index];
+    } else {
+      users[index] = { name, age, email };
+    }
 
     renderData(users);
   };
