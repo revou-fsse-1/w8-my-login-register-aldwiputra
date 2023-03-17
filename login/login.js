@@ -52,6 +52,8 @@ function submitHandlerFactory(formInputs) {
 
       if (!result.success) {
         if (errorElement.style.display === '') errorElement.style.display = 'flex';
+        errorElement.classList.add('animate');
+        setTimeout(() => errorElement.classList.remove('animate'), 500);
       } else {
         if (errorElement.style.display !== '') errorElement.style.display = '';
         localStorage.setItem('loggedInUser', JSON.stringify(result.user));

@@ -44,6 +44,22 @@ section.container {
   gap: 1rem;
 }
 
+.greeting-container {
+  gap: 1rem;
+}
+
+.sign-out {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.sign-out svg {
+  display: inline;
+  width: 1rem;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
 .greeting svg {
   display: inline;
   width: 1em;

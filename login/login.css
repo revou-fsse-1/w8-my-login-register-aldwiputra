@@ -18,6 +18,23 @@
   color: rgba(255, 0, 0, 0.7);
 }
 
+.error-msg-container.animate {
+  animation: shake 100ms;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
 .success-toast {
   opacity: 0;
   position: absolute;

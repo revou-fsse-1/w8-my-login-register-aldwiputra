@@ -23,6 +23,12 @@ if (user) {
   greetingElement.textContent = `Hello, ${JSON.parse(user).firstname}!`;
 }
 
+const signOutBtn = document.querySelector('.sign-out');
+signOutBtn.addEventListener('click', _event => {
+  localStorage.removeItem('loggedInUser');
+  window.location.pathname = '/login';
+});
+
 const users = [
   { name: 'John Doe', age: 28, email: 'john@gmail.com' },
   { name: 'Jane', age: 23, email: 'jane@gmail.com' },
