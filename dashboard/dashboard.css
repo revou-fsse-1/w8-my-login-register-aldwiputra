@@ -72,6 +72,7 @@ button {
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
+  border: black 1px solid;
 }
 
 .add-button {
@@ -88,6 +89,10 @@ button {
 
 .entry-button:last-child {
   background-color: rgba(255, 0, 0, 0.7);
+}
+
+.entry-button:hover {
+  background-color: black;
 }
 
 button:hover {
