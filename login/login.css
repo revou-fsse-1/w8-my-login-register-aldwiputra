@@ -19,6 +19,7 @@
 }
 
 .success-toast {
+  opacity: 0;
   position: absolute;
   top: 10%;
   display: flex;
@@ -30,7 +31,6 @@
 
   transition: all 500ms ease;
   /* transition-delay: 500; */
-  opacity: 0;
   transform: translateY(10%);
 }
 

@@ -6,7 +6,7 @@ if (!user) {
   container.innerHTML = '<h1>You have to login to see the page. Redirecting...</h1>';
   setTimeout(() => {
     window.location.pathname = '/login';
-  }, 1000);
+  }, 2500);
 }
 
 const greetingElement = document.querySelector('.greeting span');
