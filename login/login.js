@@ -9,7 +9,10 @@ import {
   getInputsValue,
   setLoadingButton,
   clearAllInputs,
+  addAdminUser,
 } from '../lib/utils.js';
+
+addAdminUser();
 
 const toast = document.querySelector('.success-toast');
 const emailTextElement = document.querySelector('.success-toast .email');

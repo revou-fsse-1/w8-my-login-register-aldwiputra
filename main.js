@@ -11,7 +11,10 @@ import {
   getUsersData,
   clearAllInputs,
   setLoadingButton,
+  addAdminUser,
 } from './lib/utils.js';
+
+addAdminUser();
 
 const formInputs = elementsGetter('register');
 
